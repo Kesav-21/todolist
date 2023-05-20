@@ -1,17 +1,10 @@
 from flask import Flask,render_template,request,redirect
-from flask_sqlalchemy import SQLAlchemy
+from database import db,Todo
 
 app=Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
-db = SQLAlchemy(app)
-
-class Todo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(300), nullable=False)
-
-    def __rep__(self):
-        return '<Task %r>' % self.id
+db.init_app(app)
 
 @app.route('/', methods=['POST','GET'])
 def home():
@@ -55,6 +48,20 @@ def update(id):
 
     else:
         return render_template('update.html', task=task)
+    
+@app.route('/mark/<int:id>',methods=['GET','POST'])
+def mark(id):
+    task_to_mark_completed=Todo.query.get_or_404(id)
+    task_to_mark_completed.completed = True
+    db.session.commit()
+
+    # Redirect to the main page or any other appropriate page
+    return redirect('/listtask')
+
+@app.route('/listtask')
+def listtask():
+    tasks = Todo.query.all()
+    return render_template("listtask.html", tasks=tasks)
 
 if __name__=="__main__":
     app.run(debug=True)
