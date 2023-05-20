@@ -29,7 +29,7 @@ def delete(id):
     try:
         db.session.delete(task_to_delete)
         db.session.commit()
-        return redirect('/')
+        return redirect('/listtask')
     except:
         return 'There was an error while deleting that task'
     
@@ -42,7 +42,7 @@ def update(id):
 
         try:
             db.session.commit()
-            return redirect('/')
+            return redirect('/listtask')
         except:
             return 'There was an issue while updating that task'
 
@@ -62,6 +62,21 @@ def mark(id):
 def listtask():
     tasks = Todo.query.all()
     return render_template("listtask.html", tasks=tasks)
+
+@app.route('/addtask',methods=['POST','GET'])
+def addtask():
+    if request.method == 'POST':
+        task_content = request.form['content']
+        new_task = Todo(content=task_content)
+
+        try:
+            db.session.add(new_task)
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'There was an error while adding the task'
+    else:
+        return render_template('addtask.html')
 
 if __name__=="__main__":
     app.run(debug=True)

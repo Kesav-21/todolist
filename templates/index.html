@@ -7,36 +7,11 @@
 
 {% block body %}
 
+<div class="home">
 <h1>TO DO LIST</h1>
-<h3><a href="listtask">Click Here to View all the Tasks</a></h3>
-{% if tasks|length < 1 %}
-<h4>There are no tasks. Create one below!</h4>
-{% else %}
-<table>
-    <tr>
-        <th>Task</th>
-        <th colspan="2">Actions</th>
-        <th>Mark as Completed</th>
-    </tr>
-    {%for task in tasks %}
-    <tr>
-        <td>{{task.content}}</td>
-        <td>
-            <a href="delete/{{task.id}}">Delete</a>
-        </td>
-        <td>
-            <a href="update/{{task.id}}">Update</a>
-        </td>
-        <td>
-            <a href="mark/{{task.id}}">Done</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
-{% endif %}
-<form action="/" method="POST">
-    <input type="text" name="content" id="content">
-    <input type="submit" value="Add Task">
-</form>
+<h2>This is the simple webapp to track your task using python Flask</h2>
+<h3><a href='addtask'>Add Task</a></h3>
+<h3><a href="listtask">View all the Tasks</a></h3>
+</div>
 
 {% endblock %}
