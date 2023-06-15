@@ -6,12 +6,25 @@
 {% endblock %}
 
 {% block body %}
-
-<div class="home">
-<h1>TO DO LIST</h1>
-<h2>This is the simple webapp to track your task using python Flask</h2>
-<h3><a href='addtask'>Add Task</a></h3>
-<h3><a href="listtask">View all the Tasks</a></h3>
+<div class="container">
+<div class="container-header">
+    <div class="add-div">
+<h3>Add a New Task</h3>
+<a href='addtask'><img src="../static/images/plus.svg" width="40" height="40"/></a>
+</div>
+<div class="add-div">
+<h3>Task View</h3>
+<a href="listtask"><img src="../static/images/list.svg" width="40" height="40"/></a>
+</div>
+</div>
+<div class="content-section">
+    <p>
+        Welcome to the simple To-Do-List Python Flask app.<br>
+        The main aim of the app is to add the task and store it in the database.<br>
+        Keep track on all the Tasks.<br>
+        After the Task has completed they are marked as Done.
+    </p>
+</div>
 </div>
 
 {% endblock %}

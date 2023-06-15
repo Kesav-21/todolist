@@ -5,14 +5,17 @@
 {% endblock %}
 
 {% block body %}
-
-<h1>TO DO LIST</h1>
-<h3><a href="/">Click Here to Navigate to Home</a></h3>
+<div>
+    <h3><a href="/">Click Here to Navigate to Home</a></h3>
+<div class="listview-header">
 {% if tasks|length < 1 %}
 <h4>There are no tasks. Create one below!</h4>
 <h3><a href="addtask">Add Task</a></h3>
+</div>
 {% else %}
-<h1>List of Completed Tasks</h1>
+<div class="table-section">
+<div>
+    <h1>List of Completed Tasks</h1>
 <table>
     <tr>
         <th>Task</th>
@@ -27,12 +30,14 @@
             <a href="delete/{{task.id}}">Delete</a>
         </td>
         <td>
-            <a href="mark/{{task.id}}">Completed</a>
+            <a href="mark/{{task.id}}">Completed<img src='../static/images/tick.png' width="20" height="20"/></a>
         </td>
     </tr>
     {% endif %}
     {% endfor %}
 </table>
+</div>
+<div>
 <h1>List of Uncompleted Tasks</h1>
 <table>
     <tr>
@@ -55,6 +60,9 @@
     {% endif %}
     {% endfor %}
 </table>
+</div>
+</div>
 {% endif %}
+</div>
 
 {% endblock %}

@@ -1,15 +1,64 @@
 body{
-    background: rgba(21, 193, 246, 0.25);
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #a8c0ff;
+  background: -webkit-linear-gradient(to right, #3f2b96, #a8c0ff);
+  background: linear-gradient(to right, #3f2b96, #a8c0ff);
 }
-h1,h4{
+header{
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.3px);
+    -webkit-backdrop-filter: blur(2.3px);
+    padding: 1px;
     text-align: center;
 }
 
+.container{
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.3px);
+    -webkit-backdrop-filter: blur(2.3px);
+    width: 50%;
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto;
+}
+.container-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.add-div{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.content-section{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+
+}
+.container-add{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+}
+.container-add>h2{
+    text-align: center;
+    padding: 20px;
+}
 a{
     background-color: antiquewhite;
     text-decoration: none;
@@ -23,32 +72,27 @@ a:hover{
     background-color: red;
     color:white;
 }
-.home{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 table{
-    border: 2px red solid;
+    border: 2px black solid;
     padding: 20px;
     border-radius: 25px;
     margin: 0 auto;
+    font-size: 20px;
 }
 
 td,tr{
     padding: 10px;
-    border:2px blue solid;
+    border:3px blue solid;
 }
 th{
     text-align: center;
-    border: 1px red solid;
+    border: 5px red solid;
 }
 
 form{
+    width: 100%;
     margin: 20px auto;
-    width: 10%;
 }
 input[type=submit]{
     background-color: antiquewhite;
@@ -62,10 +106,32 @@ input[type=submit]{
 input[type=submit]:hover{
     background-color: green;
     color:white;
+    cursor: pointer;
 }
 input[type=text]{
-    padding: 10px;
+    padding: 15px;
     border-radius: 20px;
     background-color: white;
-    width: 200px;
+    border: none;
+    width:90%;
+}
+
+.table-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+h1{
+    text-align: center;
+}
+.listview-header{
+    text-align: center;
+    width: 100%;
+    margin:10px auto;
+}
+
+@media screen and (max-width:768px) {
+.table-section{
+    flex-direction: column;
+}    
 }

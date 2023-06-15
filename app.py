@@ -72,7 +72,7 @@ def addtask():
         try:
             db.session.add(new_task)
             db.session.commit()
-            return redirect('/')
+            return redirect('/addtask')
         except:
             return 'There was an error while adding the task'
     else:

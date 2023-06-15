@@ -7,11 +7,23 @@
 
 {% block body %}
 
-<h1>TO DO LIST</h1>
-<h2>Add your Task Here using the Form</h2>
-<form action="/addtask" method="POST">
-    <input type="text" name="content" placeholder="Enter Task Detail" id="content">
-    <input type="submit" value="Add Task">
-</form>
+<div class="container-add">
+    <div class="container-header">
+        <img src='../static/images/task.svg' width="40" height="40"/>
+        <h2>Add your Task Here using the Form Below</h2>
+        <img src='../static/images/task.svg' width="40" height="40"/>
+        <div>
+            <a href="/listtask">Task View</a>
+        </div>
+    </div>
+    <div>
+        <form action="/addtask" method="POST">
+            <input type="text" name="content" placeholder="Enter Task Detail" id="content">
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+    
+</div>
+
 
 {% endblock %}
